@@ -3,12 +3,11 @@
  * @return {number}
  */
 var minOperations = function(nums) {
-    const counts = {}; // Store counts for each unique number
+    const counts = {}; 
     for (const num of nums) {
     counts[num] = (counts[num] || 0) + 1;
     }
 
-    // Check for impossibility
     for (const count of Object.values(counts)) {
     if (count === 1 || getOpCnt(count) === -1 || getOpCnt(count) === Infinity) return -1;
     }
