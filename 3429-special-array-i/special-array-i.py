@@ -4,20 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        if len(nums) <= 1:
-            return True
-        
-        step = 1
-        def parity(num):
-            if num % 2 == 1:
+        for i in range(1, len(nums)):
+            if not ((nums[i] ^ nums[i-1]) & 1):
                 return False
-            else:
-                return True
-
-        while step < len(nums):
-            if parity(nums[step]) == parity(nums[step - 1]):
-                return False
-            step += 1
-        
-        return True
+        return True  
             
